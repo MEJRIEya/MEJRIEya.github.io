@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eya Mejri — Data Analyst &amp; BI</title>
+<meta name="description" content="Eya Mejri — Étudiante ingénieure ERP/BI, Data Analyst junior. Projets en Power BI, Python, ML et dashboards décisionnels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1B2B;
+    --ink-soft:#142A40;
+    --paper:#F7F4EC;
+    --paper-dim:#EAE5D7;
+    --coral:#E8623A;
+    --teal:#2D9C8F;
+    --grey:#9AA8B5;
+    --line: rgba(247,244,236,0.14);
+    --line-strong: rgba(247,244,236,0.26);
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --maxw: 1120px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- focus ---------- */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--coral);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,27,43,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{
+    font-family:var(--mono);
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--paper);
+    text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--coral); display:inline-block;}
+  .navlinks{display:flex; gap:32px; list-style:none;}
+  .navlinks a{
+    font-size:14px; text-decoration:none; color:var(--grey);
+    transition:color .2s ease;
+    font-weight:500;
+  }
+  .navlinks a:hover{color:var(--paper);}
+  .nav-cta{
+    font-family:var(--mono); font-size:13px;
+    border:1px solid var(--line-strong);
+    padding:8px 16px; border-radius:100px;
+    text-decoration:none; color:var(--paper);
+    transition:all .2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{border-color:var(--coral); color:var(--coral);}
+  .navtoggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; color:var(--teal);
+    text-transform:uppercase; letter-spacing:0.12em;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px;
+  }
+  .eyebrow::before{
+    content:''; width:24px; height:1px; background:var(--teal);
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(40px, 5.6vw, 68px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+  }
+  h1 .accent{color:var(--coral);}
+  .hero-sub{
+    margin-top:24px;
+    font-size:18px;
+    color:var(--grey);
+    max-width:520px;
+    line-height:1.7;
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:14px;
+    padding:13px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--coral); color:var(--ink); font-weight:500;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(232,98,58,0.5);}
+  .btn-ghost{
+    border:1px solid var(--line-strong); color:var(--paper);
+  }
+  .btn-ghost:hover{border-color:var(--paper); transform:translateY(-2px);}
+
+  .hero-stats{
+    display:flex; gap:32px; margin-top:48px;
+    font-family:var(--mono);
+  }
+  .stat-num{font-size:26px; color:var(--paper); font-weight:500;}
+  .stat-label{font-size:12px; color:var(--grey); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* signature: animated query sparkline */
+  .hero-viz{
+    position:relative;
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 22px 18px;
+  }
+  .viz-head{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:12px; color:var(--grey);
+    margin-bottom:14px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:12px;
+  }
+  .viz-head .dots{display:flex; gap:6px;}
+  .viz-head .dots span{width:8px; height:8px; border-radius:50%; background:var(--line-strong); display:block;}
+  .viz-query{
+    font-family:var(--mono); font-size:13px; color:var(--teal);
+    margin-bottom:16px; line-height:1.6;
+  }
+  .viz-query .kw{color:var(--coral);}
+  .viz-query .com{color:var(--grey);}
+  svg.sparkline{width:100%; height:140px; display:block;}
+  .sparkline path.line{
+    fill:none; stroke:var(--coral); stroke-width:2.5;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 2.2s ease forwards .3s;
+  }
+  .sparkline path.area{
+    fill:url(#areaGrad);
+    opacity:0;
+    animation: fadein 1s ease forwards 1.6s;
+  }
+  .sparkline circle{
+    opacity:0;
+    animation: fadein .5s ease forwards 2.1s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes fadein{to{opacity:1;}}
+  .viz-foot{
+    display:flex; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; color:var(--grey);
+    margin-top:10px;
+  }
+  .viz-foot .ok{color:var(--teal);}
+
+  @media (prefers-reduced-motion: reduce){
+    .sparkline path.line{stroke-dashoffset:0; animation:none;}
+    .sparkline path.area, .sparkline circle{opacity:1; animation:none;}
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:48px; gap:24px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line);
+    padding-bottom:24px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:13px; color:var(--coral);
+  }
+  h2{
+    font-family:var(--display); font-weight:600;
+    font-size:clamp(28px, 3.2vw, 38px);
+    letter-spacing:-0.01em;
+  }
+  .section-tag{
+    font-family:var(--mono); font-size:13px; color:var(--grey);
+    max-width:280px; text-align:right;
+  }
+  @media (max-width:720px){ .section-tag{text-align:left;} }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap:56px;
+  }
+  .about-text p{color:var(--grey); font-size:16px; margin-bottom:18px; max-width:560px;}
+  .about-text strong{color:var(--paper); font-weight:600;}
+
+  .skill-block{margin-bottom:28px;}
+  .skill-block h3{
+    font-family:var(--mono); font-size:12px; color:var(--teal);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:13px;
+    background:var(--ink-soft); border:1px solid var(--line);
+    color:var(--paper); padding:6px 12px; border-radius:6px;
+  }
+
+  .lang-row{display:flex; gap:24px; flex-wrap:wrap; margin-top:6px;}
+  .lang-item{font-family:var(--mono); font-size:13px; color:var(--grey);}
+  .lang-item b{color:var(--paper); font-weight:500;}
+
+  /* ---------- projects ---------- */
+  .projects{display:flex; flex-direction:column; gap:1px; background:var(--line);}
+  .project{
+    background:var(--ink);
+    padding:36px;
+    display:grid;
+    grid-template-columns: 90px 1fr 200px;
+    gap:28px;
+    align-items:start;
+    transition:background .25s ease;
+  }
+  .project:hover{background:var(--ink-soft);}
+  .project-id{
+    font-family:var(--mono); font-size:13px; color:var(--grey); padding-top:4px;
+  }
+  .project-id .yr{display:block; color:var(--coral); font-size:12px; margin-top:6px;}
+  .project-title{
+    font-family:var(--display); font-weight:600; font-size:21px; margin-bottom:10px;
+    color:var(--paper);
+  }
+  .project-desc{color:var(--grey); font-size:15px; margin-bottom:16px; max-width:560px;}
+  .project-stack{display:flex; flex-wrap:wrap; gap:7px;}
+  .project-stack span{
+    font-family:var(--mono); font-size:11.5px; color:var(--teal);
+    border:1px solid rgba(45,156,143,0.35); padding:4px 9px; border-radius:5px;
+  }
+  .project-highlight{
+    font-family:var(--mono); font-size:12px; color:var(--grey);
+    border-left:2px solid var(--coral); padding-left:14px;
+    align-self:start;
+  }
+  .project-highlight b{display:block; color:var(--paper); font-size:13px; margin-bottom:4px; font-weight:500;}
+
+  @media (max-width:860px){
+    .project{grid-template-columns:1fr; gap:14px;}
+    .project-highlight{border-left:none; border-top:2px solid var(--coral); padding-left:0; padding-top:12px;}
+  }
+
+  /* ---------- experience ---------- */
+  .timeline{display:flex; flex-direction:column;}
+  .tl-item{
+    display:grid; grid-template-columns:140px 1fr;
+    gap:28px; padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:none;}
+  .tl-date{font-family:var(--mono); font-size:13px; color:var(--coral); padding-top:3px;}
+  .tl-role{font-family:var(--display); font-weight:600; font-size:18px; margin-bottom:4px;}
+  .tl-org{font-family:var(--mono); font-size:13px; color:var(--teal); margin-bottom:12px;}
+  .tl-desc{color:var(--grey); font-size:15px; max-width:600px;}
+  @media (max-width:640px){ .tl-item{grid-template-columns:1fr; gap:8px;} }
+
+  /* ---------- education + certs ---------- */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .edu-item{padding:20px 0; border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-deg{font-weight:600; font-family:var(--display); font-size:16px;}
+  .edu-school{font-family:var(--mono); font-size:13px; color:var(--teal); margin-top:4px;}
+  .edu-year{font-family:var(--mono); font-size:12px; color:var(--grey); margin-top:4px;}
+  .subhead{
+    font-family:var(--mono); font-size:12px; color:var(--grey);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:18px;
+  }
+  @media (max-width:760px){ .edu-grid{grid-template-columns:1fr; gap:0;} }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--paper); color:var(--ink); border-radius:20px;
+    padding:64px 48px; text-align:center; position:relative; overflow:hidden;
+  }
+  .contact h2{color:var(--ink);}
+  .contact p{color:#4A5568; max-width:480px; margin:14px auto 32px; font-size:16px;}
+  .contact-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .clink{
+    font-family:var(--mono); font-size:14px;
+    background:var(--ink); color:var(--paper);
+    padding:13px 24px; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .2s ease;
+  }
+  .clink:hover{transform:translateY(-2px);}
+  .clink.alt{background:transparent; border:1.5px solid var(--ink); color:var(--ink);}
+
+  footer{
+    padding:36px 0 48px; text-align:center;
+    font-family:var(--mono); font-size:12.5px; color:var(--grey);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-viz{order:-1;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+  }
+  @media (max-width:680px){
+    .navlinks{display:none;}
+    .hero{padding:64px 0 56px;}
+    section{padding:64px 0;}
+    .hero-stats{gap:22px; flex-wrap:wrap;}
+    .contact{padding:48px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo"><span class="dot"></span>eya.mejri</a>
+    <ul class="navlinks">
+      <li><a href="#about">Profil</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#education">Formation</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Me contacter</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Disponible pour un stage d'été 2026</div>
+        <h1>Je transforme la donnée<br>en décisions <span class="accent">claires</span>.</h1>
+        <p class="hero-sub">
+          Eya Mejri — étudiante ingénieure en 4ᵉ année, spécialisation ERP &amp; Business Intelligence
+          à ESPRIT. Je conçois des dashboards, des modèles prédictifs et des outils d'aide à la
+          décision qui donnent du sens aux chiffres.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Voir mes projets →</a>
+          <a href="assets/CV-Eya-Mejri.pdf" class="btn btn-ghost" download>Télécharger le CV ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Projets BI / Data</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Stages effectués</div>
+          </div>
+          <div>
+            <div class="stat-num">4</div>
+            <div class="stat-label">Modèles ML déployés</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-viz" aria-hidden="true">
+        <div class="viz-head">
+          <span>query_result.kpi</span>
+          <span class="dots"><span></span><span></span><span></span></span>
+        </div>
+        <div class="viz-query">
+          <span class="kw">SELECT</span> engagement <span class="kw">FROM</span> projets<br>
+          <span class="kw">WHERE</span> stack <span class="kw">LIKE</span> '%BI%'; <span class="com">-- 0.03s</span>
+        </div>
+        <svg class="sparkline" viewBox="0 0 320 140" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E8623A" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#E8623A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="area" d="M0,110 L30,95 L60,100 L90,70 L120,80 L150,45 L180,55 L210,30 L240,40 L270,15 L320,20 L320,140 L0,140 Z"/>
+          <path class="line" d="M0,110 L30,95 L60,100 L90,70 L120,80 L150,45 L180,55 L210,30 L240,40 L270,15 L320,20"/>
+          <circle cx="320" cy="20" r="4.5" fill="#E8623A"/>
+        </svg>
+        <div class="viz-foot">
+          <span>4 rows returned</span>
+          <span class="ok">● status: insight ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">01 — Profil</div>
+          <h2>Qui je suis</h2>
+        </div>
+        <div class="section-tag">ESPRIT · Cycle ingénieur ERP/BI</div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Étudiante en <strong>4ᵉ année du cycle ingénieur à ESPRIT</strong>, spécialisée en ERP et
+            Business Intelligence, je suis à la recherche d'un <strong>stage d'été</strong> au sein
+            d'une entreprise innovante.
+          </p>
+          <p>
+            Rigoureuse et motivée, j'aime mettre mes compétences au service de projets concrets
+            d'<strong>optimisation des processus métiers</strong> et de <strong>pilotage par la donnée</strong>,
+            tout en continuant à apprendre dans un environnement professionnel stimulant.
+          </p>
+          <p>
+            Au-delà des chiffres, je suis membre active de l'<strong>IEEE ESPRIT Student Club</strong>
+            (Computer Society), où je participe à des ateliers techniques et des projets communautaires
+            autour des technologies émergentes.
+          </p>
+          <div class="lang-row">
+            <span class="lang-item"><b>Arabe</b> — natif</span>
+            <span class="lang-item"><b>Français</b> — courant</span>
+            <span class="lang-item"><b>Anglais</b> — courant</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-block">
+            <h3>Langages &amp; analyse</h3>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Java</span>
+              <span class="tag">PHP</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <h3>BI &amp; data</h3>
+            <div class="tag-row">
+              <span class="tag">Power BI</span>
+              <span class="tag">Anaconda</span>
+              <span class="tag">MLOps</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <h3>Frameworks</h3>
+            <div class="tag-row">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">React</span>
+              <span class="tag">Angular</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">Symfony</span>
+              <span class="tag">JavaFX</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <h3>Mobile &amp; outils</h3>
+            <div class="tag-row">
+              <span class="tag">Flutter</span>
+              <span class="tag">FlutterFlow</span>
+              <span class="tag">Git</span>
+              <span class="tag">Docker</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">MariaDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">02 — Projets</div>
+          <h2>Projets &amp; réalisations</h2>
+        </div>
+        <div class="section-tag">Du dashboard décisionnel au modèle prédictif</div>
+      </div>
+
+      <div class="projects">
+
+        <article class="project">
+          <div class="project-id">01<span class="yr">2025–26</span></div>
+          <div>
+            <div class="project-title">Padel Analytics</div>
+            <p class="project-desc">
+              Plateforme décisionnelle BI &amp; MLOps complète pour l'écosystème du padel professionnel.
+              Une interface multi-rôles donne à chaque décideur l'accès à ses propres KPIs.
+            </p>
+            <div class="project-stack">
+              <span>Angular</span><span>FastAPI</span><span>Power BI</span><span>Machine Learning</span><span>MLOps</span>
+            </div>
+          </div>
+          <div class="project-highlight">
+            <b>4 modèles ML déployés</b>
+            Dashboards Power BI interactifs et KPIs personnalisés par rôle
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-id">02<span class="yr">2025</span></div>
+          <div>
+            <div class="project-title">Plateforme d'évaluation sécurité Cloud</div>
+            <p class="project-desc">
+              Analyse des risques de sécurité cloud avec un système de scoring et des recommandations
+              personnalisées, dans le respect des bonnes pratiques OWASP.
+            </p>
+            <div class="project-stack">
+              <span>React.js</span><span>Spring Boot</span><span>OWASP</span><span>Agile</span>
+            </div>
+          </div>
+          <div class="project-highlight">
+            <b>Stage ESPRIT — 2 mois</b>
+            Dashboard interactif + scoring de risque automatisé
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-id">03<span class="yr">2023</span></div>
+          <div>
+            <div class="project-title">Prédiction du churn client</div>
+            <p class="project-desc">
+              Modèle de prédiction du taux de désabonnement client pour Tunisie Télécom : analyse de
+              données et modélisation pour extraire des insights actionnables sur l'attrition.
+            </p>
+            <div class="project-stack">
+              <span>Python</span><span>Anaconda</span><span>Data Modeling</span>
+            </div>
+          </div>
+          <div class="project-highlight">
+            <b>Stage data analyst — 1 mois</b>
+            Insights utilisés pour réduire l'attrition client
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-id">04<span class="yr">2024–25</span></div>
+          <div>
+            <div class="project-title">Easy Way — gestion des transports</div>
+            <p class="project-desc">
+              Application web/desktop pour la gestion du transport : suivi de trajets, covoiturage,
+              gestion des utilisateurs et des événements, avec une version mobile dédiée.
+            </p>
+            <div class="project-stack">
+              <span>Java</span><span>Symfony</span><span>FlutterFlow</span>
+            </div>
+          </div>
+          <div class="project-highlight">
+            <b>Projet ESPRIT</b>
+            Web, desktop et mobile sur une base commune
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-id">05<span class="yr">2023–24</span></div>
+          <div>
+            <div class="project-title">PFE — Aide à la décision trading crypto</div>
+            <p class="project-desc">
+              Outil d'aide à la décision pour le trading de cryptomonnaies, avec des algorithmes
+              d'analyse de données financières sur une stack web complète.
+            </p>
+            <div class="project-stack">
+              <span>React</span><span>Tailwind</span><span>Spring Boot</span><span>MariaDB</span><span>Docker</span>
+            </div>
+          </div>
+          <div class="project-highlight">
+            <b>Projet de fin d'année</b>
+            Analyse financière appliquée aux marchés crypto
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">03 — Parcours</div>
+          <h2>Expérience professionnelle</h2>
+        </div>
+        <div class="section-tag">Stages &amp; mises en pratique</div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">2025 · 2 mois</div>
+          <div>
+            <div class="tl-role">Stage en développement Full Stack</div>
+            <div class="tl-org">ESPRIT — Plateforme d'évaluation sécurité Cloud</div>
+            <p class="tl-desc">
+              Conception frontend (React.js) et backend (Spring Boot) d'une plateforme d'analyse des
+              risques cloud, avec système de scoring, recommandations personnalisées et dashboard
+              interactif, selon la méthodologie Agile.
+            </p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Été 2023 · 1 mois</div>
+          <div>
+            <div class="tl-role">Stage d'été — Data Analyst</div>
+            <div class="tl-org">Tunisie Télécom</div>
+            <p class="tl-desc">
+              Développement d'un modèle de prédiction du taux de désabonnement (churn) : analyse de
+              données et modélisation avec Python et Anaconda pour réduire l'attrition client.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">04 — Formation</div>
+          <h2>Formation &amp; certifications</h2>
+        </div>
+        <div class="section-tag">ESPRIT · ISI Kef</div>
+      </div>
+
+      <div class="edu-grid">
+        <div>
+          <div class="subhead">Diplômes</div>
+          <div class="edu-item">
+            <div class="edu-deg">Cycle ingénieur en ERP/BI</div>
+            <div class="edu-school">ESPRIT Ingénieur</div>
+            <div class="edu-year">2024 — présent</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-deg">Licence en Sciences Informatiques</div>
+            <div class="edu-school">ISI Kef</div>
+            <div class="edu-year">2021 — 2024</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-deg">Baccalauréat scientifique</div>
+            <div class="edu-school">Lycée Krib — Siliana</div>
+            <div class="edu-year">2020 — 2021</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="subhead">Certifications &amp; implication</div>
+          <div class="edu-item">
+            <div class="edu-deg">Certification Angular</div>
+            <div class="edu-school">Google Developer Student Clubs — ISI Kef</div>
+            <div class="edu-year">2022</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-deg">Membre actif</div>
+            <div class="edu-school">IEEE ESPRIT Student Club — Computer Society</div>
+            <div class="edu-year">2023 — présent</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-deg">Portfolio en ligne avec Laravel</div>
+            <div class="edu-school">Architecture MVC, routes &amp; base de données MySQL</div>
+            <div class="edu-year">2022 — 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Parlons de votre prochain projet data.</h2>
+        <p>
+          À la recherche d'un stage d'été 2026 en Business Intelligence ou Data Analytics.
+          Disponible, motivée, et prête à apprendre vite.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:mejrieya384@gmail.com" class="clink">✉ mejrieya384@gmail.com</a>
+          <a href="https://www.linkedin.com/in/mejri-eya-0b3680252/" class="clink alt" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/MEJRIEya" class="clink alt" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Eya Mejri — Conçu &amp; codé avec soin · 2026</div>
+</footer>
+
+</body>
+</html>
